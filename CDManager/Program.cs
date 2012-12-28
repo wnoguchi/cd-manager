@@ -16,18 +16,12 @@ namespace CDManager
 
         static void Main(string[] args)
         {
-            if (!(args.Length > 0))
-            {
-                return;
-            }
-
             bool closeFlag = false;
-            if (args[0] == "close")
+            if (args.Length > 0 && args[0] == "close")
             {
                 closeFlag = true;
             }
 
-            // mciSendString("status my_sound volume", buff, buffのサイズ, IntPtr.Zero);
             foreach (string drive in Environment.GetLogicalDrives())
             {
                 DriveInfo di = new DriveInfo(drive);
