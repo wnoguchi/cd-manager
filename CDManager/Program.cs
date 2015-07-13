@@ -9,11 +9,10 @@ namespace CDManager
 {
     class Program
     {
-        [DllImport("winmm", CharSet = CharSet.Auto)]
-        private static extern int mciSendString(
-            string command, StringBuilder buffer,
-            int bufferSize, IntPtr hwndCallback);
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             bool closeFlag = false;
@@ -22,7 +21,7 @@ namespace CDManager
                 closeFlag = true;
             }
 
-            foreach (string drive in Environment.GetLogicalDrives())
+            foreach (var drive in Environment.GetLogicalDrives())
             {
                 DriveInfo di = new DriveInfo(drive);
                 if (di.DriveType == DriveType.CDRom)
